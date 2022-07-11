@@ -23,3 +23,9 @@ client.on("messageCreate", (message) => {
         message.channel.send({ embeds: [embed] })
     }
 })
+
+client.on('message', message => {
+    if (message.content === '+ping') {  
+      message.channel.send(`🏓Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+    }
+  });
