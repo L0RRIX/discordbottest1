@@ -30,28 +30,26 @@ client.on('message', message => {
     }
   });
 
-client.on("message", (message) =>{
-    if(message.content.startsWith("?kick")) {
-    
-        var utentekick = message.mentions.members.first();
+  client.on("messageCreate", message => {
+    if (message.content.startsWith("!kick")) {
+        let utente = message.mentions.members.first();
 
-
-    
-        if(!utentekick) {
-            message.channel.send("Non hai menzionato nessun utente");
-            return;
-
+        if (!message.member.permissions.has('KICK_MEMBERS')) {
+            return message.channel.send('Non hai il permesso');
         }
-
-        if(!utentekick.kickable) {
-            message.channel.send("Il bot non ha il permesspo di eseguire questo comando, contatta lorrix ");
-            return;
+        if (!utente) {
+            return message.channel.send('Non hai menzionato nessun utente');
         }
+        if (!utente.kickable) {
+            return message.channel.send('Io non ho il permesso');
+        }
+        utente.kick()
+            .then(() => {
+                let embed = new Discord.MessageEmbed()
+                    .setTitle(`${utente.user.username} kickato`)
+                    .setDescription(`Utente kickato da ${message.author.toString()}`)
 
-        utentekick.kick()
-            .then(() => message.channel.send("<@" + utentekick + "> è stato kiccato"))
-
-        
+                message.channel.send({ embeds: [embed] })
+            })
     }
-
- })
+})
