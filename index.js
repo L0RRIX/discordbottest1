@@ -29,3 +29,31 @@ client.on('message', message => {
       message.channel.send(`🏓Pong!${Math.round(client.ws.ping)}ms🏓`);
     }
   });
+
+client.on("message", (message) =>{
+    if(message.content.startsWith("?kick")) {
+    
+        var utentekick = message.mentions.members.first();
+
+        if(!message.member.hasPermission("KICK_MEMBERS")){
+            message.channel.send("Non hai il permesso di eseguire questo comando");
+            return;
+
+        }
+
+        if(!utentekick.kickable) {
+            message.channel.send("Il bot non ha il permesspo di eseguire questo comando, contatta lorrix ");
+            return;
+        }
+    
+        if(!utentekick) {
+            message.channel.send("Non hai menzionato nessun utente");
+            return;
+
+        }
+
+        utentekick.kick()
+        .then(() => message.channel.send ("<@" + utentekick "> è stato kiccato") )
+    }
+
+ })
