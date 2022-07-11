@@ -35,10 +35,10 @@ client.on("message", (message) =>{
     
         var utentekick = message.mentions.members.first();
 
-        if(!message.member.hasPermission("KICK_MEMBERS")){
-            message.channel.send("Non hai il permesso di eseguire questo comando");
+        
+        if (!message.member.hasPermission("KICK_MEMBERS")) {
+            message.channel.send('Non hai il permesso');
             return;
-
         }
 
         
