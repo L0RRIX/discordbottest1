@@ -31,7 +31,7 @@ client.on('message', message => {
   });
 
   client.on("messageCreate", message => {
-    if (message.content.startsWith("!kick")) {
+    if (message.content.startsWith("?kick")) {
         let utente = message.mentions.members.first();
 
         if (!message.member.permissions.has('KICK_MEMBERS')) {
