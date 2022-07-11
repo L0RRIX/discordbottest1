@@ -25,7 +25,7 @@ client.on("messageCreate", (message) => {
 })
 
 client.on('message', message => {
-    if (message.content === '+ping') {  
-      message.channel.send(`🏓Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+    if (message.content === '?ping') {  
+      message.channel.send(`La latenza è ${Math.round(client.ws.ping)}ms`);
     }
   });
