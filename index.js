@@ -55,7 +55,9 @@ client.on("message", (message) =>{
         }
 
         utentekick.kick()
-        .then(() => message.channel.send("<@" + utentekick + "> è stato kiccato"))
+            .then(() => message.channel.send("<@" + utentekick + "> è stato kiccato"))
+
+        
     }
 
  })
