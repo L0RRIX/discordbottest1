@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const client = new Discord.Client(
-    { intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_BANS"] }
+    { intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_BANS", "GUILD_KICK"] }
 )
 
 client.login(process.env.token)
@@ -36,7 +36,7 @@ client.on("message", (message) =>{
         var utentekick = message.mentions.members.first();
 
 
-    
+        if(!message.member.has)
     
         if(!utentekick) {
             message.channel.send("Non hai menzionato nessun utente");
