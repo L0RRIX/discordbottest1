@@ -54,25 +54,4 @@ client.on('message', message => {
     }
 })
 
-client.on("message", message => {
-    if (message.content.startsWith("?avatar")) {
-        if (message.content.trim() == "?avatar") {
-            let utente = message.member;
-        }
-        else {
-            let utente = message.mentions.members.first();
-        }
-        if (!utente) {
-            return message.channel.send("Utente non trovato")
-        }
-        let embed = new Discord.MessageEmbed()
-            .setTitle(utente.user.tag)
-            .setDescription("L'avatar di questo utente")
-            .setImage(utente.user.displayAvatarURL({
-                dynamic: true,
-                format: "png",
-                size: 512
-            }))
-        message.channel.send(embed)
-    }
-})
+
