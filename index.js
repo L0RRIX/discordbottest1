@@ -36,7 +36,9 @@ client.on("message", (message) =>{
         var utentekick = message.mentions.members.first();
 
 
-        if(!message.member.has)
+        if(!message.member.permissions("KICK_MEMBERS")) {
+            message.channel.send("Non hai il permesso");
+        }
     
         if(!utentekick) {
             message.channel.send("Non hai menzionato nessun utente");
