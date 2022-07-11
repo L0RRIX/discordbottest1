@@ -53,9 +53,9 @@ client.on("message", (message) =>{
             message.channel.send("Il bot non ha il permesspo di eseguire questo comando, contatta lorrix ");
             return;
         }
-        
+
         utentekick.kick()
-        .then(() => message.channel.send ("<@" + utentekick "> è stato kiccato") )
+        .then(() => message.channel.send("<@" + utentekick + "> è stato kiccato"))
     }
 
  })
