@@ -26,6 +26,6 @@ client.on("messageCreate", (message) => {
 
 client.on('message', message => {
     if (message.content === '?ping') {  
-      message.channel.send(`🏓Pong!${Math.round(client.ws.ping)}ms`🏓);
+      message.channel.send(`🏓Pong!${Math.round(client.ws.ping)}ms🏓`);
     }
   });
