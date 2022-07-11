@@ -41,10 +41,7 @@ client.on("message", (message) =>{
 
         }
 
-        if(!utentekick.kickable) {
-            message.channel.send("Il bot non ha il permesspo di eseguire questo comando, contatta lorrix ");
-            return;
-        }
+        
     
         if(!utentekick) {
             message.channel.send("Non hai menzionato nessun utente");
@@ -52,6 +49,11 @@ client.on("message", (message) =>{
 
         }
 
+        if(!utentekick.kickable) {
+            message.channel.send("Il bot non ha il permesspo di eseguire questo comando, contatta lorrix ");
+            return;
+        }
+        
         utentekick.kick()
         .then(() => message.channel.send ("<@" + utentekick "> è stato kiccato") )
     }
